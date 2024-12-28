@@ -1,0 +1,17 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="100" fill="white" />
+  
+  <mask id="mask" x="0" y="0" width="100" height="100">
+    <circle cx="100" cy="100" r="90" fill="white" />
+  </mask>
+  
+  <rect width="200" height="66.67" fill="black" mask="url(#mask)" />
+  <rect y="66.67" width="200" height="66.67" fill="#eda72d" mask="url(#mask)" />
+  <rect y="133.34" width="200" height="66.67" fill="red" mask="url(#mask)" />
+  
+  <circle cx="100" cy="100" r="30" fill="#fcb230" stroke="black" stroke-width="2" />
+  <polygon points="104,111 73,85 74,115" fill="black" />
+  <polygon points="100,110 65,80 65,115" fill="#eda72d" />
+  <circle cx="90" cy="85" r="6" fill="black" />
+  <circle cx="120" cy="100" r="6" fill="black" />
+</svg>
