@@ -1,0 +1,73 @@
+.buttons {
+    border-radius: 10px;
+    background-color: #a000ff;
+    height: 20px; /* Tamaño del botón */
+    position: absolute; /* Lo posicionamos de manera absoluta dentro de #img */
+    right: 0; /* Lo mueve completamente a la derecha dentro de #img */
+    top: 18%; /* Lo coloca a la mitad en el eje vertical */
+}
+
+.b1 {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    background: #000;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #fff;
+    margin: 0.5em 0;
+}
+
+#img {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#img #img_ {
+    max-width: 100px;
+    border-radius: 20%;
+}
+
+#redes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+#redes .redes {
+    background-color: #000;
+    border-radius: 10%;
+    max-width: 60px;
+    min-width: 60px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+#redes .redes:hover {
+    transform: scale(1.1);
+}
+
+#div_text {
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #a000ff;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+}
+
+#div_text .txt {
+    margin: 0;
+    font-family: "Comic Neue", cursive;
+    font-size: 18px;
+    line-height: 1.6;
+}
