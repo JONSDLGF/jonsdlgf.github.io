@@ -1,0 +1,29 @@
+{
+  "Emuladores": {
+    "Nintendo": [
+      {
+        "nombre": "Nintendo 64",
+        "texto": "N64 Emulator",
+        "url": "https://www.pj64-emu.com/",
+        "tags": ["n64", "emulador", "retro", "nintendo64"]
+      },{
+        "nombre": "GameBoy",
+        "texto": "Emulator",
+        "url": {"1":"1","a":"a"},
+        "tags": ["GB", "emulador", "retro", "gameboy"]
+      }
+    ]
+  },
+  "SYSTEMS": {
+    "DosBox": [
+        {
+            "mane": "DosBox",
+            "text": "ms-dos Emulator",
+            "url": "https://www.dosbox.com/",
+            "tags": ["retro", "emulador", "ms-dos"]
+        }
+    ]
+  },
+  "ROMs": {
+  }
+}

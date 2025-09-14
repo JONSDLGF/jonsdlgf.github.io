@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="PCGEL, retro gaming, retro">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCGEL</title>
+<style>
+body { background:#111; color:#eee; font-family:system-ui,sans-serif; margin:0; padding:30px 20px; }
+h1 { text-align:center; margin-bottom:10px; }
+#search { display:block; margin:0 auto 30px auto; width:100%; max-width:500px; padding:12px; border:1px solid #333; border-radius:8px; background:#1a1a1a; color:#eee; font-size:1rem; }
+.category { margin:40px auto; max-width:900px; }
+.category h2 { margin-bottom:15px; border-bottom:1px solid #444; padding-bottom:5px; color:#4ea3ff; }
+.subcategory h3 { margin-bottom:10px; color:#88c0ff; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:15px; }
+.card { background:#1a1a1a; padding:15px; border-radius:10px; transition:background 0.2s; }
+.card:hover { background:#222; }
+.card strong { display:block; margin-bottom:8px; }
+.links a { display:block; margin:5px 0; padding:8px 10px; background:#4ea3ff; color:#111; border-radius:6px; font-size:0.85rem; text-decoration:none; font-weight:600; text-align:center; }
+.links a:hover { background:#2d8be0; }
+.tags { margin-top:10px; font-size:0.85rem; color:#aaa; }
+.tags span { margin-right:5px; color:#4ea3ff; cursor:pointer; }
+.tags span:hover { text-decoration:underline; }
+.hidden { display:none !important; }
+</style>
+</head>
+<body>
+
+<h1>📂 Emuladores y ROMs</h1>
+<input type="text" id="search" placeholder="🔎 Buscar por nombre o #tag...">
+
+<div id="content"></div>
+
+<script>
+const content = document.getElementById("content");
+const searchInput = document.getElementById("search");
+let cards = [];
+
+fetch("data.json")
+  .then(res => res.json())
+  .then(data => {
+    for (const categoria in data) {
+      const section = document.createElement("section");
+      section.classList.add("category");
+      section.innerHTML = `<h2>${categoria}</h2>`;
+      content.appendChild(section);
+
+      const catData = data[categoria];
+      for (const subcat in catData) {
+        const subDiv = document.createElement("div");
+        subDiv.classList.add("subcategory");
+        subDiv.innerHTML = `<h3>${subcat}</h3><div class="grid"></div>`;
+        const grid = subDiv.querySelector(".grid");
+
+        const items = catData[subcat];
+        items.forEach(item => {
+          const card = document.createElement("div");
+          card.classList.add("card");
+          card.dataset.tags = item.tags.join(" ").toLowerCase();
+
+          // Generar links según tipo
+          let linksContent = "";
+          if (item.links && item.links.length) {
+            // array de links
+            linksContent = item.links.map(link => `<a href="${link.url}" target="_blank">${link.texto}</a>`).join("");
+          } else if (typeof item.url === "object") {
+            // objeto con varias URLs
+            linksContent = Object.entries(item.url).map(([key, value]) => `<a href="${value}" target="_blank">${key}</a>`).join("");
+          } else {
+            // URL simple
+            linksContent = `<a href="${item.url}" target="_blank">${item.texto || item.nombre}</a>`;
+          }
+
+          card.innerHTML = `
+            <strong>${item.texto || item.nombre}</strong>
+            <div class="links">${linksContent}</div>
+            <div class="tags">${item.tags.map(tag => `<span>${tag}</span>`).join(" ")}</div>
+          `;
+
+          grid.appendChild(card);
+          cards.push(card);
+
+          card.querySelectorAll(".tags span").forEach(tagEl => {
+            tagEl.addEventListener("click", () => {
+              searchInput.value = tagEl.textContent;
+              filterCards();
+            });
+          });
+        });
+
+        section.appendChild(subDiv);
+      }
+    }
+  });
+
+function filterCards() {
+  const filter = searchInput.value.toLowerCase();
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    const tags = card.dataset.tags;
+    card.classList.toggle("hidden", !text.includes(filter) && !tags.includes(filter));
+  });
+}
+
+searchInput.addEventListener("keyup", filterCards);
+</script>
+
+</body>
+</html>
