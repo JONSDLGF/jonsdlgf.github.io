@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="EN">
 <head>
 <meta charset="UTF-8">
-<meta name="keywords" content="PCGEL, retro gaming, retro">
+<meta name="keywords" content="PCGEL, retro gaming, retro, games, systems">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PCGEL</title>
+<title>PCGEL v1.0</title>
 <style>
 body { background:#111; color:#eee; font-family:system-ui,sans-serif; margin:0; padding:30px 20px; }
 h1 { text-align:center; margin-bottom:10px; }
@@ -26,8 +26,8 @@ h1 { text-align:center; margin-bottom:10px; }
 </head>
 <body>
 
-<h1>📂 Emuladores y ROMs</h1>
-<input type="text" id="search" placeholder="🔎 Buscar por nombre o #tag...">
+<h1>📂 search for any programs or data roms</h1>
+<input type="text" id="search" placeholder="🔎 search for name or #tag...">
 
 <div id="content"></div>
 
@@ -62,17 +62,17 @@ fetch("data.json")
           let linksContent = "";
           if (item.links && item.links.length) {
             // array de links
-            linksContent = item.links.map(link => `<a href="${link.url}" target="_blank">${link.texto}</a>`).join("");
+            linksContent = item.links.map(link => `<a href="${link.url}" target="_blank">${link.text}</a>`).join("");
           } else if (typeof item.url === "object") {
             // objeto con varias URLs
             linksContent = Object.entries(item.url).map(([key, value]) => `<a href="${value}" target="_blank">${key}</a>`).join("");
           } else {
             // URL simple
-            linksContent = `<a href="${item.url}" target="_blank">${item.texto || item.nombre}</a>`;
+            linksContent = `<a href="${item.url}" target="_blank">${item.text || item.name}</a>`;
           }
 
           card.innerHTML = `
-            <strong>${item.texto || item.nombre}</strong>
+            <strong>${item.texto || item.name}</strong>
             <div class="links">${linksContent}</div>
             <div class="tags">${item.tags.map(tag => `<span>${tag}</span>`).join(" ")}</div>
           `;
