@@ -2,14 +2,14 @@
   "Emuladores": {
     "Nintendo": [
       {
-        "nombre": "Nintendo 64",
-        "texto": "N64 Emulator",
+        "name": "Nintendo 64",
+        "text": "N64 Emulator",
         "url": "https://www.pj64-emu.com/",
         "tags": ["n64", "emulador", "retro", "nintendo64"]
       },{
-        "nombre": "GameBoy",
-        "texto": "Emulator",
-        "url": {"1":"1","a":"a"},
+        "name": "GameBoy",
+        "text": "Emulator",
+        "url": {"BGB":"https://bgb.bircd.org/","GBA":"https://visualboyadvance.org/"},
         "tags": ["GB", "emulador", "retro", "gameboy"]
       }
     ]
@@ -17,11 +17,27 @@
   "SYSTEMS": {
     "DosBox": [
         {
-            "mane": "DosBox",
+            "name": "DosBox",
             "text": "ms-dos Emulator",
             "url": "https://www.dosbox.com/",
             "tags": ["retro", "emulador", "ms-dos"]
         }
+    ],
+    "PcJs": [
+      {
+            "name": "PcJs",
+            "text": "virtual machine for browser",
+            "url": "https://www.pcjs.org/",
+            "tags": ["retro", "simulator", "ms-dos", "game", "virtual", "machine"]
+      }
+    ],
+    "WebVM": [
+      {
+            "name": "WebVM",
+            "text": "virtual machine for browser",
+            "url": "https://webvm.io/",
+            "tags": ["linux", "virtual", "machine"]
+      }
     ]
   },
   "ROMs": {
