@@ -4,12 +4,18 @@
       {
         "name": "Nintendo 64",
         "text": "N64 Emulator",
-        "url": "https://www.pj64-emu.com/",
+        "url": {
+          "proget64":"https://www.pj64-emu.com/",
+          "mupen64plus":"https://mupen64plus.org/"
+        },
         "tags": ["n64", "emulador", "retro", "nintendo64"]
       },{
         "name": "GameBoy",
         "text": "Emulator",
-        "url": {"BGB":"https://bgb.bircd.org/","GBA":"https://visualboyadvance.org/"},
+        "url": {
+          "BGB":"https://bgb.bircd.org/",
+          "GBA":"https://visualboyadvance.org/"
+        },
         "tags": ["GB", "emulador", "retro", "gameboy"]
       }
     ]
@@ -17,29 +23,40 @@
   "SYSTEMS": {
     "DosBox": [
         {
-            "name": "DosBox",
-            "text": "ms-dos Emulator",
-            "url": "https://www.dosbox.com/",
-            "tags": ["retro", "emulador", "ms-dos"]
+          "name": "DosBox",
+          "text": "ms-dos Emulator",
+          "url": "https://www.dosbox.com/",
+          "tags": ["retro", "emulador", "ms-dos"]
         }
     ],
     "PcJs": [
       {
-            "name": "PcJs",
-            "text": "virtual machine for browser",
-            "url": "https://www.pcjs.org/",
-            "tags": ["retro", "simulator", "ms-dos", "game", "virtual", "machine"]
+        "name": "PcJs",
+        "text": "virtual machine for browser",
+        "url": "https://www.pcjs.org/",
+        "tags": ["retro", "simulator", "ms-dos", "game", "virtual", "machine"]
       }
     ],
     "WebVM": [
       {
-            "name": "WebVM",
-            "text": "virtual machine for browser",
-            "url": "https://webvm.io/",
-            "tags": ["linux", "virtual", "machine"]
+        "name": "WebVM",
+        "text": "virtual machine for browser",
+        "url": "https://webvm.io/",
+        "tags": ["linux", "virtual", "machine"]
       }
     ]
   },
   "ROMs": {
+    "The Legend of Zelda": [
+      {
+        "name": "The Legend of Zelda",
+        "text": "",
+        "url": {
+          "The Legend of Zelda (nes)(eur)": "https://wowroms.com/es/roms/nintendo-entertainment-system/the-legend-of-zelda-europe/22797.html",
+          "The Legend of Zelda 1 & 2 (nes)(esp)": "https://cuevadeclasicos.org/comunidad/temas/legend-of-zelda-1-y-2-espanol-nes-dd.13211/"
+        },
+        "tags": ["rom", "zelda", "nes"]
+      }
+    ]
   }
 }
