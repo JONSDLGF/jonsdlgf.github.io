@@ -1,81 +1,76 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jon web</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <style>
-    body {
-      background-color: black;
-      color: black;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    hr {
-      margin: 20px auto;
-      width: 80%;
-    }
-    .social-icons a img {
-      width: 40px;
-      height: 40px;
-      margin: 5px;
-    }
-    .content {
-      background-color: white;
-      color: black;
-      width: 80%;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    ul {
-      text-align: left;
-      display: inline-block;
-    }
-  </style>
+  <title>os-web</title>
 </head>
 <body>
+  <div id="mainscreen">
+    <div id="miDiv" class="ventana">
+      <style>
+        #miDiv .contenido img{
+          width: 40px;
+          height: 40px;
+          margin: 5px;
+          background-color: black;
+          border-radius: 10px;
+        }
+      </style>
+      <div id="miDivHeader" class="tab-control">
+        <img src="mainapps/favicon.ico" alt="mainico">
+        <span>Main Web</span>
+        <span class="boton-cerrar" onclick="this.closest('.ventana').remove()">×</span>
+      </div>
+      <div class="contenido">
+        <a href="https://discord.gg/a5KUB2pV9d">             <img src="mainapps/discord.png" alt="Discord"></a>
+        <a href="https://x.com/JON_SDLGF">                   <img src="mainapps/x.png"       alt="X"></a>
+        <a href="https://www.youtube.com/@jon_sdlglf">       <img src="mainapps/youtube.png" alt="YouTube"></a>
+        <a href="https://www.twitch.tv/jon_sdlgl">           <img src="mainapps/twitch.png"  alt="Twitch"></a>
+        <a href="https://www.tiktok.com/@jonmikelcerdangil"> <img src="mainapps/tiktok.png"  alt="TikTok"></a>
+        <a href="https://github.com/JONSDLGF">               <img src="mainapps/github.png"  alt="GitHub"></a>
+        <div style="height: auto; background: linear-gradient(to bottom, #eee, #ccc); margin-top: 10px; padding: 10px;">
 
-  <header>
-    <img src="SDLGS.png" alt="Logo SDLGS" width="150" height="150">
-  </header>
+          <h3>Hola, soy Jon, un streamer :3.</h3>
 
-  <hr>
+          <p><strong>Horario de transmisiones (casi todos):</strong></p>
+          <ul>
+            <li>Lunes: 16:00 - 22:00</li>
+            <li>Martes: 16:00 - 22:00</li>
+            <li>Miércoles: 16:00 - 22:00</li>
+            <li>Jueves: 16:00 - 22:00</li>
+            <li>Viernes: 16:00 - 22:00</li>
+            <li>Sábados: Variable (dependiendo del día)</li>
+            <li>Domingos: Variable (dependiendo del día)</li>
+          </ul>
 
-  <section class="social-icons">
-    <a href="https://discord.gg/a5KUB2pV9d"><img src="discord.png" alt="Discord"></a>
-    <a href="https://x.com/JON_SDLGF"><img src="x.png" alt="X"></a>
-    <a href="https://www.youtube.com/@jon_sdlglf"><img src="youtube.png" alt="YouTube"></a>
-    <a href="https://www.twitch.tv/jon_sdlgl"><img src="twitch.png" alt="Twitch"></a>
-    <a href="https://www.tiktok.com/@jonmikelcerdangil"><img src="tiktok.png" alt="TikTok"></a>
-    <a href="https://github.com/JONSDLGF"><img src="github.png" alt="GitHub"></a>
-    <a href="FR/"><img src="FR/logo.png" alt="FR"></a>
-  </section>
+          <p><em>Página web hecha por Jon.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <main class="content">
-    <h2>Hola, soy Jon, un streamer :3.</h2>
-
-    <p><strong>Cómo usar la página web:</strong></p>
-    <ul>
-      <li>El ícono del centro, cuando estás en algún repositorio, te permite regresar a la página anterior.</li>
-    </ul>
-
-    <p><strong>Horario de transmisiones:</strong></p>
-    <ul>
-      <li>Lunes: 16:00 - 22:00</li>
-      <li>Martes: 16:00 - 22:00</li>
-      <li>Miércoles: 16:00 - 22:00</li>
-      <li>Jueves: 16:00 - 22:00</li>
-      <li>Viernes: 16:00 - 22:00</li>
-      <li>Sábados: Variable (dependiendo del día)</li>
-      <li>Domingos: Variable (dependiendo del día)</li>
-    </ul>
-
-    <p><em>Página web hecha por Jon.</em></p>
-  </main>
-
+  <div id="osbarr">
+    <div class="inicio-contenedor">
+      <div id="menu-inicio" class="menu-desplegable">
+        <div class="menu-item" onclick="crearVentana('Perfil', 'Info de Jon...')">👤 Perfil</div>
+        <div class="menu-item" onclick="crearVentana('Ajustes', 'Configuración...')">⚙️ Ajustes</div>
+        <hr>
+        <div class="menu-item" onclick="location.reload()">🔄 Reiniciar OS</div>
+      </div>
+      
+      <button class="start-btn" onclick="toggleMenu()">
+        <img style="width: 40px; height: 40px;" src="mainapps/favicon.ico" alt="logo"> 
+        Inicio
+      </button>
+    </div>
+    
+    <div class="taskbar-items" id="taskbar-items">
+      </div>
+  </div>
+  
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
 </body>
 </html>

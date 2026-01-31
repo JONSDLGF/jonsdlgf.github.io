@@ -1,0 +1,126 @@
+.ventana {
+  position: absolute;
+  z-index: 9;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  
+  /* Configuración para redimensionar */
+  min-width: 50px;  /* Ancho mínimo */
+  width: 850px;      /* Ancho inicial */
+  left: 100px;
+  
+  min-height: 50px; /* Alto mínimo */
+  height: 500px;     /* Alto inicial */
+  top: 10px;
+
+  resize: both;      /* Permite redimensionar en ambas direcciones */
+  overflow: hidden;  /* Necesario para que 'resize' funcione correctamente con el header */
+  
+  display: flex;
+  flex-direction: column; /* Alinea header y contenido verticalmente */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  border-radius: 5px;
+}
+
+/* Estilo para la imagen del icono */
+.tab-control img {
+  width: 16px;
+  height: 16px;
+  pointer-events: none; /* Para que no interfiera con el arrastre */
+  object-fit: contain;
+}
+
+.tab-control {
+  padding: 10px 15px;
+  cursor: move;
+  background-color: #2196F3;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0; /* Evita que el header se encoja al redimensionar */
+}
+
+.contenido {
+  padding: 15px;
+  color: #333;
+  flex-grow: 1;      /* Ocupa todo el espacio sobrante */
+  overflow: auto;    /* Agrega scroll automático (X e Y) si es necesario */
+}
+
+.boton-cerrar {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Estilo opcional para que el scroll se vea más moderno */
+.contenido::-webkit-scrollbar {
+  width: 8px;
+}
+.contenido::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+#osbarr {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* Importante: dale altura para que se vea */
+  background-color: #333; /* Un color oscuro para probar */
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  z-index: 9999; /* Esto lo pone por encima de todo */
+  border-top: 1px solid #555;
+}
+
+/* Para que la ventana no tape la barra al final */
+#mainscreen {
+  height: calc(100vh - 70px);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.inicio-contenedor {
+  position: relative; /* Para que el menú se posicione respecto a este div */
+}
+
+.menu-desplegable {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  bottom: 50px; /* Se eleva por encima de la barra (45px + 5px de margen) */
+  left: 0;
+  width: 200px;
+  background: rgba(240, 240, 240, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid #808080;
+  box-shadow: 2px -2px 10px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 5px;
+  z-index: 10000;
+}
+
+.menu-desplegable.show {
+  display: flex; /* Se muestra cuando tiene la clase 'show' */
+}
+
+.menu-item {
+  padding: 10px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+.menu-item:hover {
+  background: #2196F3;
+  color: white;
+}
+
+hr { border: 0; border-top: 1px solid #ccc; margin: 5px 0; }
