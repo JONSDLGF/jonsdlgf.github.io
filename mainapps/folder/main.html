@@ -1,0 +1,118 @@
+<style>
+.explorador-ventana {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Root fijo, Files flexible */
+    height: 100vh; /* Fill Y: ocupa todo el alto de la pantalla */
+    background: #fff;
+    font-family: 'Tahoma', sans-serif;
+}
+
+#files {
+    display: grid;
+    /* Grid flexible para los iconos */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-auto-rows: max-content;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Estilo de los archivos: Icono arriba, texto abajo */
+.file-item {
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    padding: 10px;
+}
+
+.file-item:hover {
+    background: #e5f3ff;
+    outline: 1px solid #99d1ff;
+}
+
+.file-item span {
+    font-size: 45px; /* Tamaño del emoji 📂 */
+    margin-bottom: 5px;
+}
+
+.file-item p {
+    margin: 0;
+    font-size: 12px;
+    color: #000;
+}
+.tree-item {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+/* Hover tipo verde para los enlaces/directorios */
+.tree-item:hover {
+    background-color: #4caf50; /* Verde */
+    color: white;
+    font-weight: bold;
+}
+#roots .folder:hover, #roots .file:hover {
+    background-color: #4caf50; /* Tu verde */
+    color: white;
+    cursor: pointer;
+}
+
+.file-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Botones del árbol lateral */
+.tree-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 4px 8px;
+    text-align: left;
+    font-family: 'Tahoma', sans-serif;
+    cursor: pointer;
+}
+
+.tree-btn:hover {
+    background-color: #4caf50; /* Tu verde */
+    color: white;
+}
+
+.tree-btn p { margin: 0; margin-left: 5px; }
+.tree-btn .more { width: 15px; font-weight: bold; }
+
+/* Botones del grid (derecha) */
+.file-card-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.file-card-btn:hover {
+    background: #e5f3ff;
+    border: 1px solid #99d1ff;
+}
+
+.file-card-btn .icon { font-size: 40px; }
+</style>
+
+
+<div class="explorador-ventana">
+    <div id="roots"></div>
+    
+    <div id="files"></div>
+</div>

@@ -1,0 +1,6 @@
+{
+    "TITLE": "calc",
+    "HTML": "mainapps/calc/main.html",
+    "ICON": "mainapps/calc/assets/icon.png",
+    "SCR": "mainapps/calc/scr.js"
+}

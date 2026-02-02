@@ -1,0 +1,6 @@
+{
+    "TITLE": "config os",
+    "HTML": "mainapps/conf/main.html",
+    "ICON": "mainapps/conf/assets/conf.png",
+    "SCR": "mainapps/conf/scr.js"
+}

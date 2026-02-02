@@ -1,0 +1,134 @@
+<style>
+  :root {
+    --primary-color: #bb86fc; 
+    --bg-dark: #121212;
+    --card-bg: #1e1e1e;
+  }
+
+  .os-card {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--card-bg);
+    color: #e0e0e0;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 380px;
+    margin: 20px auto;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    position: relative;
+  }
+
+  .version-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(187, 134, 252, 0.1);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    border: 1px solid var(--primary-color);
+  }
+
+  .social-grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .inw0_ {
+    width: 32px; 
+    height: 32px;
+    background: #2b2b2b;
+    border-radius: 8px;
+    padding: 6px;
+    transition: all 0.2s ease;
+    border: 1px solid #3d3d3d;
+    object-fit: contain;
+  }
+
+  .inw0_:hover {
+    transform: translateY(-3px);
+    background: #3d3d3d;
+    border-color: var(--primary-color);
+  }
+
+  .stats-bar {
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .stat-item strong {
+    color: var(--primary-color);
+    margin-right: 5px;
+  }
+
+  .schedule-section {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 12px;
+  }
+
+  .schedule-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #777;
+    letter-spacing: 1px;
+  }
+
+  .day-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.7rem;
+    color: #555;
+    line-height: 1.5;
+  }
+</style>
+
+<div class="os-card">
+  <span class="version-tag">v2.2.0-STABLE</span>
+  
+  <div style="margin-bottom: 10px;">
+    <h3 style="margin: 0; color: #fff; font-size: 1.4rem;">Jon OS</h3>
+    <p style="margin: 5px 0 0; color: #aaa; font-size: 0.9rem;">Hola, soy Jon, un streamer :3</p>
+  </div>
+
+  <div class="social-grid">
+    <a target="_blank" rel="noopener" href="https://discord.gg/a5KUB2pV9d"><img class="inw0_" src="mainapps/info/assets/imgs/discord.png" alt="Discord"></a>
+    <a target="_blank" rel="noopener" href="https://x.com/JON_SDLGF"><img class="inw0_" src="mainapps/info/assets/imgs/x.png" alt="X"></a>
+    <a target="_blank" rel="noopener" href="https://www.youtube.com/@jon_sdlglf"><img class="inw0_" src="mainapps/info/assets/imgs/youtube.png" alt="YouTube"></a>
+    <a target="_blank" rel="noopener" href="https://www.twitch.tv/jon_sdlgl"><img class="inw0_" src="mainapps/info/assets/imgs/twitch.png" alt="Twitch"></a>
+    <a target="_blank" rel="noopener" href="https://www.tiktok.com/@jonmikelcerdangil"><img class="inw0_" src="mainapps/info/assets/imgs/tiktok.png" alt="TikTok"></a>
+    <a target="_blank" rel="noopener" href="https://github.com/JONSDLGF"><img class="inw0_" src="mainapps/info/assets/imgs/github.png" alt="GitHub"></a>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item"><strong>Ubicación:</strong> España (ES)</div>
+  </div>
+
+  <div class="schedule-section">
+    <h4>Registro de Horarios</h4>
+    <div class="day-row"><span>Lunes a Viernes</span> <span>16:00 - 22:00</span></div>
+    <div class="day-row"><span>Sábados y Domingos</span> <span>Variable</span></div>
+  </div>
+
+  <div class="footer">
+    Kernel: Custom Jon-Core | Host: Spain_Server
+    <br>¿Cómo usar el OS? Haz clic en los iconos superiores.
+  </div>
+</div>

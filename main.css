@@ -1,3 +1,11 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita scrolls raros en el escritorio */
+    width: 100%;
+    height: 100%;
+}
+
 .ventana {
   position: absolute;
   z-index: 9;
@@ -6,12 +14,10 @@
   
   /* Configuración para redimensionar */
   min-width: 50px;  /* Ancho mínimo */
-  width: 850px;      /* Ancho inicial */
-  left: 100px;
+  width: 800px;      /* Ancho inicial */
   
   min-height: 50px; /* Alto mínimo */
-  height: 500px;     /* Alto inicial */
-  top: 10px;
+  height: 400px;     /* Alto inicial */
 
   resize: both;      /* Permite redimensionar en ambas direcciones */
   overflow: hidden;  /* Necesario para que 'resize' funcione correctamente con el header */
@@ -43,7 +49,7 @@
 }
 
 .contenido {
-  padding: 15px;
+  padding: 0px;
   color: #333;
   flex-grow: 1;      /* Ocupa todo el espacio sobrante */
   overflow: auto;    /* Agrega scroll automático (X e Y) si es necesario */
@@ -62,12 +68,12 @@
 .contenido::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 4px;
+  margin: 0px;
+  padding: 0px;
 }
 
 #osbarr {
   position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 70px; /* Importante: dale altura para que se vea */
   background-color: #333; /* Un color oscuro para probar */
@@ -84,14 +90,21 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  background-image: url('osset/TETO.webp');
+  background-size: cover;
+  background-position: center; /* Para que el recorte sea desde el medio */
+  background-repeat: no-repeat;
 }
 
 .inicio-contenedor {
-  position: relative; /* Para que el menú se posicione respecto a este div */
+  position: relative;
+  min-width: 100%;
 }
 
 .menu-desplegable {
   display: none; /* Oculto por defecto */
+  padding: 0; /* Quitamos el padding para que los items llenen el espacio */
+  overflow: hidden; /* Para que el border-radius corte también a los items */
   position: absolute;
   bottom: 50px; /* Se eleva por encima de la barra (45px + 5px de margen) */
   left: 0;
@@ -102,7 +115,6 @@
   box-shadow: 2px -2px 10px rgba(0,0,0,0.3);
   border-radius: 5px;
   flex-direction: column;
-  padding: 5px;
   z-index: 10000;
 }
 
@@ -111,11 +123,22 @@
 }
 
 .menu-item {
-  padding: 10px;
+  display: flex;         /* Activa el modo caja flexible */
+  align-items: center;    /* Centra verticalmente el icono con el texto */
+  gap: 15px;             /* El espacio exacto entre el icono y el nombre */
+  padding: 8px 15px;
   cursor: pointer;
-  font-family: sans-serif;
-  font-size: 14px;
-  border-radius: 3px;
+}
+
+.menu-item p {
+  margin: 0;             /* ¡IMPORTANTE! Quita el margen que traen los <p> por defecto */
+  font-family: 'Tahoma', sans-serif; /* Estilo Windows XP */
+  font-size: 13px;
+}
+
+.menu-item:hover {
+  background-color: #1660E8; /* Azul selección de Windows */
+  color: white;
 }
 
 .menu-item:hover {
@@ -124,3 +147,55 @@
 }
 
 hr { border: 0; border-top: 1px solid #ccc; margin: 5px 0; }
+
+/* Ventana normal */
+.ventana {
+    filter: grayscale(0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: filter 0.2s, box-shadow 0.2s;
+}
+
+/* Cuando se le hace focus (puedes añadir esta clase con JS si quieres más detalle) */
+.ventana:active, .ventana:focus-within {
+    filter: grayscale(0);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-color: #2196F3;
+}
+
+/* Estilo base del botón de inicio */
+.start-btn {
+    display: flex;             /* Alinea icono y texto en línea */
+    align-items: center;       /* Centra verticalmente el contenido */
+    gap: 8px;                  /* Espacio entre el logo y la palabra "Inicio" */
+    padding: 5px 15px;
+    background-color: #333;    /* Color oscuro profesional */
+    color: white;              /* Texto blanco */
+    border: none;
+    border-radius: 4px;        /* Bordes sutilmente redondeados */
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s; /* Animación suave */
+}
+
+/* Efecto cuando pasas el ratón (Hover) */
+.start-btn:hover {
+    background-color: #444;    /* Se aclara un poco */
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto cuando haces clic (Active) */
+.start-btn:active {
+    transform: scale(0.95);    /* Se encoge un poquito al pulsar */
+    background-color: #222;
+}
+
+/* Estilo para la imagen dentro del botón */
+.start-btn img {
+    /* Ya definiste width y height en el HTML, pero aquí 
+       aseguramos que no se deforme */
+    object-fit: contain; 
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3)); /* Sombra al logo */
+}
+
+

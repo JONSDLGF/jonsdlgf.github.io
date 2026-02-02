@@ -1,0 +1,170 @@
+<style>
+  .config-panel {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #1e1e1e;
+    color: #e0e0e0;
+    border-radius: 16px;
+    padding: 25px;
+    max-width: 420px;
+    margin: 20px auto;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  .config-panel h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #bb86fc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+  }
+
+  .setting-group {
+    margin-bottom: 18px;
+  }
+
+  .setting-group label {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .input-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .config-panel input[type="text"] {
+    flex: 1;
+    background: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .config-panel input[type="text"]:focus {
+    border-color: #bb86fc;
+  }
+
+  .config-panel input[type="color"] {
+    width: 50px;
+    height: 38px;
+    border: none;
+    border-radius: 8px;
+    background: #2b2b2b;
+    cursor: pointer;
+    padding: 2px;
+  }
+
+  .config-panel button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+
+  .config-panel button:hover {
+    background: #444;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+  }
+
+  .btn-save { background: #6200ee !important; }
+  .btn-save:hover { background: #7c4dff !important; }
+
+  .prefab-group {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .btn-prefab {
+    background: transparent !important;
+    border: 1px solid #444 !important;
+    font-size: 0.7rem !important;
+    color: #aaa !important;
+  }
+</style>
+
+<div class="config-panel">
+  <h2>⚙️ Panel de Control</h2>
+
+  <div class="setting-group">
+    <label>Icono del Sistema (PNG)</label>
+    <div class="input-row">
+      <input id="confInputIcon" type="text" value="osset/icon.png">
+      <button onclick="setIcon()">Cambiar</button>
+    </div>
+  </div>
+
+  <div class="setting-group">
+    <label>Imagen de fondo</label>
+    <div class="input-row">
+      <input id="confInputbg" type="text" value="osset/TETO.webp">
+      <button onclick="bgimg()">Aplicar</button>
+    </div>
+  </div>
+
+  <div class="setting-group">
+    <label>Nombre del Sistema</label>
+    <div class="input-row">
+      <input id="confInputName" type="text" placeholder="Jon OS">
+      <button onclick="setName()">Renombrar</button>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 20px;">
+    <div class="setting-group" style="flex: 1;">
+      <label>Color Barra</label>
+      <div class="input-row">
+        <input id="confInputbarr" type="color" value="#333333"> 
+        <button onclick="bgbarr()">Ok</button>
+      </div>
+    </div>
+
+    <div class="setting-group" style="flex: 1;">
+      <label>Color Texto</label>
+      <div class="input-row">
+        <input id="confInputTextColor" type="color" value="#000000">
+        <button onclick="setTextColor()">Ok</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="btn-save" onclick="Downloadconf()">💾 Guardar Todo</button>
+    <button onclick="Uploadconf()">📂 Importar</button>
+  </div>
+
+  <div class="prefab-group">
+    <button class="btn-prefab" onclick="PreWxp()">Windows XP</button>
+    <button class="btn-prefab" onclick="PreModern()">Modern Dark</button>
+  </div>
+</div>

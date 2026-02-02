@@ -1,0 +1,6 @@
+{
+    "TITLE": "folder",
+    "HTML": "mainapps/folder/main.html",
+    "ICON": "mainapps/folder/assets/folder.png",
+    "SCR": "mainapps/folder/scr.js"
+}
