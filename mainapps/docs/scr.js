@@ -1,5 +1,5 @@
 { // <-- Abrimos bloque
-    const miApi = new Api();
+    const miApi = api;
     const miIdVentana = miApi.getVentanaActual().id;
 
     // Buscamos la barra de la ventana (asegúrate de que el ID coincida con tu HTML)

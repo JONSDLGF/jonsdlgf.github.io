@@ -117,7 +117,6 @@ function PreWxp() {
     const startImg = document.getElementById("start-img");
     if (startImg) {
         startImg.src = "osset/windowsicon.png"; // Asegúrate de tener esta imagen
-        startImg.style.width="100%";
     }
 
     // 5. Estilo del Menú de Inicio

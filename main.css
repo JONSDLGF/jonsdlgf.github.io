@@ -97,6 +97,7 @@ body, html {
 }
 
 .inicio-contenedor {
+  display: flex;
   position: relative;
   min-width: 100%;
 }
@@ -194,8 +195,43 @@ hr { border: 0; border-top: 1px solid #ccc; margin: 5px 0; }
 .start-btn img {
     /* Ya definiste width y height en el HTML, pero aquí 
        aseguramos que no se deforme */
-    object-fit: contain; 
+    width: 30px; height: 30px;
     filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3)); /* Sombra al logo */
 }
 
+#taskbar-items {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding-right: 10px;
+  background-color: transparent;
+}
 
+/* --- RELOJ --- */
+#task-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  color: white;
+  text-align: center;
+}
+
+#task-time-ti {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#task-time-da {
+  font-size: 12px;
+}
+
+.icons {
+  width: 40px;
+  display: flex;
+  flex-direction: column;   /* uno debajo del otro */
+  justify-content: center;  /* centra verticalmente */
+  align-items: center;      /* centra horizontalmente */
+}

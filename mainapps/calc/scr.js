@@ -1,6 +1,6 @@
 {
     // 1. Encontrar la ventana actual de forma relativa
-    const miApi = new Api();
+    const miApi = api;
     const miVentana = miApi.getVentanaActual().elemento;
 
     // 2. Localizar elementos SOLO dentro de esta ventana

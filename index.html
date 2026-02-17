@@ -12,46 +12,25 @@
   </div>
 
   <div id="osbarr">
+    
     <div class="inicio-contenedor">
       <div id="menu-inicio" class="menu-desplegable">
-        <div class="menu-item" onclick="crearVentana('./mainapps/calc/index.json')">
-          <span class="icon">📟</span>
-          <p>Calculadora</p>
-        </div>
-        <div class="menu-item" onclick="crearVentana('./mainapps/conf/index.json')">
-          <span class="icon">⚙️</span>
-          <p>config</p>
-        </div>
-        <div class="menu-item" onclick="crearVentana('./mainapps/info/index.json')">
-          <span class="icon">ℹ️</span>
-          <p>info</p>
-        </div>
-        <div class="menu-item" onclick="crearVentana('./mainapps/docs/index.json')">
-          <span class="icon">📄</span>
-          <p>docs</p>
-        </div>
-        <div class="menu-item" onclick="crearVentana('./mainapps/folder/index.json')">
-          <span class="icon">📁</span>
-          <p>folder</p>
-        </div>
-        <div class="menu-item" onclick="crearVentana('./mainapps/cmd/index.json')">
-          <span class="icon", style="color:white;background-color: black;border-radius: 5px;">[>_]</span>
-          <p>cmd</p>
-        </div>
         <hr>
         <div class="menu-item" onclick="location.reload()">
           <span class="icon">🔄</span>
           <p>Reiniciar OS</p>
         </div>
       </div>
-      
-      <button class="start-btn" onclick="toggleMenu()">
-        <img id="start-img" style="width: 30px; height: 30px;" src="osset/icon.png" alt="logo"> 
+      <button class="start-btn" onclick="api.toggleMenu()">
+        <img id="start-img" src="osset/icon.png" alt="logo"> 
         Inicio
       </button>
-    </div>
-    
-    <div class="taskbar-items" id="taskbar-items">
+      <div id="taskbar-items">
+      </div>
+      <div id="task-time">
+        <span id="task-time-ti"></span><br>
+        <span id="task-time-da"></span>
+      </div>
     </div>
   </div>
   
