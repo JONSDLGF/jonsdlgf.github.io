@@ -228,10 +228,35 @@ hr { border: 0; border-top: 1px solid #ccc; margin: 5px 0; }
   font-size: 12px;
 }
 
+/* --- ICONOS DE APLICACIONES --- */
 .icons {
-  width: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
-  flex-direction: column;   /* uno debajo del otro */
-  justify-content: center;  /* centra verticalmente */
-  align-items: center;      /* centra horizontalmente */
+  flex-direction: column;      /* icono arriba, texto abajo */
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s, background-color 0.2s;
+  color: white;
+}
+
+.icons img {
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+}
+
+.icons span {
+  font-size: 10px;
+  margin-top: 2px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Hover efecto */
+.icons:hover {
+  background-color: rgba(255,255,255,0.1);
+  transform: scale(1.1);
 }
