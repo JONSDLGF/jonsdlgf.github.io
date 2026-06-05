@@ -1,0 +1,44 @@
+<style>
+    .calc-container { padding: 10px; background: #f0f0f0; }
+    .calc-display {
+        width: 98%; height: 40px; text-align: right;
+        font-size: 20px; margin-bottom: 10px; padding: 5px;
+        background: #e0e0e0; border: 1px solid #999;
+    }
+    .calc-buttons {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
+    }
+    .calc-buttons button {
+        padding: 15px; cursor: pointer; border: 1px solid #ccc;
+        background: #fff; font-weight: bold;
+    }
+    .calc-buttons button:hover { background: #ddd; }
+    .btn-op { background: #ff9800 !important; color: white; }
+    .btn-res { background: #2196F3 !important; color: white; grid-row: span 2; }
+</style>
+
+<input type="text" class="calc-display" value="0" readonly>
+
+<div class="calc-buttons">
+    <button data-val="7">7</button>
+    <button data-val="8">8</button>
+    <button data-val="9">9</button>
+    <button data-val="/" class="btn-op">÷</button>
+    
+    <button data-val="4">4</button>
+    <button data-val="5">5</button>
+    <button data-val="6">6</button>
+    <button data-val="*" class="btn-op">×</button>
+
+    <button data-val="1">1</button>
+    <button data-val="2">2</button>
+    <button data-val="3">3</button>
+    <button data-val="-" class="btn-op">-</button>
+
+    <button data-val="0">0</button>
+    <button data-val=".">.</button>
+    <button data-action="result" class="btn-op">=</button>
+    <button data-val="+" class="btn-op">+</button>
+    
+    <button data-action="clear" class="btn-op">C</button>
+</div>

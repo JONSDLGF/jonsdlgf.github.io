@@ -1,0 +1,6 @@
+{
+    "TITLE": "Docs Text Edit",
+    "HTML": "mainapps/docs/main.html",
+    "ICON": "mainapps/docs/assets/docs.png",
+    "SCR": "mainapps/docs/scr.js"
+}
