@@ -14,13 +14,13 @@ class Win {
     };
 }
 
-function Win_new(title, w, h) {
+export function Win_new(title, w, h) {
     Win.title = title;
     Win.w = w;
     Win.h = h;
 }
 
-function Win_start() {
+export function Win_start() {
     const canvas = document.createElement("canvas");
 
     canvas.width = Win.w;
