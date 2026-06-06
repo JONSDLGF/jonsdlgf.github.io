@@ -1,2 +1,5 @@
-# Stat_1
-# hi
+# Main
+
+`hi im jon or JM`
+
+- gmail: `jonsdlglf@gmail.com`
