@@ -64,7 +64,7 @@
       const content = document.getElementById("content");
       if (results.length === 0) {
         content.style.whiteSpace = "pre-line";
-        content.textContent = `Sin resultados, estamos en ello, quieres poner wbl como predeterminado codigo:\n"https://jonsdlgf.github.io/wbl/?q=%s" o en local "http://localhost:8000/?q=%s"?`;
+        content.textContent = `Sin resultados, estamos en ello +10 url indexados, quieres poner wbl como predeterminado codigo:\n"https://jonsdlgf.github.io/wbl/?q=%s" o en local "http://localhost:8000/?q=%s"?`;
         return;
       }
 
@@ -100,17 +100,44 @@
   </script>
 </head>
 
-<body style="background:#000; color:#fff;">
-  <input id="text" type="text" placeholder="Search">
-  <button onclick="button_Go()">Go</button>
+<body style="margin:0; background:#000; color:#fff; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;">
+  <div style="max-width:900px; margin:0 auto; padding:18px;">
+    
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <input
+        id="text"
+        type="text"
+        placeholder="Search"
+        style="flex:1; min-width:220px; padding:10px 12px; border-radius:10px; border:1px solid #333; background:#111; color:#fff; outline:none;"
+      >
 
-  <!-- Selector de idioma después del botón Go -->
-  <select id="lang" style="margin-left: 8px;">
-    <option value="es_ES">es_ES</option>
-    <option value="en_US">en_US</option>
-  </select>
+      <button
+        onclick="button_Go()"
+        style="padding:10px 16px; border-radius:10px; border:1px solid #333; background:#1f1f1f; color:#fff; cursor:pointer;"
+      >
+        Go
+      </button>
 
-  <hr>
-  <div id="content"></div>
+      <div style="margin-left:auto; font-size:14px; color:#bdbdbd; padding:6px 12px; border:1px solid #333; border-radius:999px;">
+        Beta
+      </div>
+    </div>
+
+    <!-- Selector de idioma (después de Go) -->
+    <div style="margin-top:12px; display:flex; align-items:center; gap:10px;">
+      <label for="lang" style="color:#bdbdbd; font-size:14px;">Language</label>
+      <select
+        id="lang"
+        style="padding:10px 12px; border-radius:10px; border:1px solid #333; background:#111; color:#fff; outline:none; margin-left:0;"
+      >
+        <option value="es_ES">es_ES</option>
+        <option value="en_US">en_US</option>
+      </select>
+    </div>
+
+    <hr style="border:none; border-top:1px solid #222; margin:16px 0;">
+
+    <div id="content"></div>
+  </div>
 </body>
 </html>
