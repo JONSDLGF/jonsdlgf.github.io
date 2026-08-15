@@ -1,30 +1,91 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <title>Web Browser Local</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.12.0/sql-wasm.min.js"></script>
   <script>
+    let SQL;
+    let db;
+
+    async function initSql() {
+      // Carga SQL.js (wasm)
+      SQL = await initSqlJs({
+        locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.12.0/${file}`
+      });
+    }
+
+    async function loadDb(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("No se pudo cargar: " + url);
+      const bytes = await res.arrayBuffer();
+
+      // Abre SQLite en memoria (local)
+      db = new SQL.Database(new Uint8Array(bytes));
+    }
+
+    function escapeForLike(s) {
+      // '%' y '_' tienen significado en LIKE; escapamos.
+      return s.replaceAll('\\', '\\\\').replaceAll('%', '\\%').replaceAll('_', '\\_');
+    }
+
     async function button_Go() {
-      const q = document.getElementById("text").value; // lee input
-      const data = await getquests(q);                  // intenta obtener datos
-      display(data);
+      const q = document.getElementById("text").value.trim();
+      if (!q) return;
+
+      // Ejemplo: busca en main.title/main.text y topics
+      // Ajusta según tus columnas reales.
+      const like = `%${escapeForLike(q)}%`;
+
+      const stmt = db.prepare(`
+        SELECT title, url, text, topics
+        FROM main
+        WHERE title LIKE ? ESCAPE '\\'
+           OR text LIKE ? ESCAPE '\\'
+           OR topics LIKE ? ESCAPE '\\'
+        LIMIT 20
+      `);
+
+      stmt.bind([like, like, like]);
+
+      const results = [];
+      while (stmt.step()) {
+        const row = stmt.getAsObject();
+        results.push(row);
+      }
+      stmt.free();
+
+      display(results);
     }
 
-    async function getquests(query) {
-      // Esto solo sirve para demostrar carga del archivo como texto/binario.
-      // Una SQLite .db no se puede consultar así desde JS sin un motor.
-      const res = await fetch("./searchmain.db");
-      if (!res.ok) throw new Error("No se pudo cargar searchmain.db");
-      return await res.arrayBuffer();
+    function display(results) {
+      const content = document.getElementById("content");
+      if (results.length === 0) {
+        content.textContent = "Sin resultados.";
+        return;
+      }
+
+      content.innerHTML = "";
+      for (const r of results) {
+        const div = document.createElement("div");
+        div.style.margin = "8px 0";
+        div.innerHTML = `
+          <a href="${r.url}" target="_blank" rel="noreferrer">${r.title}</a>
+          <div style="color:#aaa; font-size: 0.9em;">${r.topics}</div>
+          <div style="color:#ddd;">${String(r.text || '').slice(0, 140)}</div>
+        `;
+        content.appendChild(div);
+      }
     }
 
-    function display(data) {
-      document.getElementById("content").textContent =
-        "Cargado searchmain.db (bytes): " + data.byteLength;
-    }
+    window.addEventListener("DOMContentLoaded", async () => {
+      await initSql();
+      await loadDb("./searchmain.db"); // tu pack principal
+    });
   </script>
 </head>
 
-<body bgcolor="#000">
+<body style="background:#000; color:#fff;">
   <input id="text" type="text" placeholder="Search">
   <button onclick="button_Go()">Go</button>
   <hr>
