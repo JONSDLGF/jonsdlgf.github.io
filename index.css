@@ -1,0 +1,92 @@
+
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: Arial;
+}
+
+/* 🧱 GRID GENERAL */
+.container {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px;
+    grid-template-rows: 60px 1fr;
+    height: 100vh;
+}
+
+/* 🔝 TOP BAR */
+.topbar {
+    grid-column: 1 / 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: #111;
+    border-bottom: 2px solid aqua;
+}
+
+.menu a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* 📄 CENTRO */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🧾 CAJA SCROLL (Markdown) */
+.content-box {
+    width: 80%;
+    height: 70vh;
+    overflow-y: auto;
+    
+    border: 2px solid aqua;
+    border-radius: 20px;
+    padding: 20px;
+    
+    background: #111;
+    box-sizing: border-box;
+}
+
+/* 🌐 SCROLL BAR */
+.content-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-box::-webkit-scrollbar-thumb {
+    background: aqua;
+    border-radius: 10px;
+}
+
+/* 📱 SIDEBARS */
+
+.leftbar, .rightbar {
+    background: #0f0f0f;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.rightbar a:hover, .leftbar a:hover {
+    background: aqua;
+    color: black;
+}
+
+.leftbar a, .rightbar a {
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.rightbar a, .leftbar a {
+    text-align: center;
+}

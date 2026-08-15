@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Web Browser Local</title>
+  <script>
+    async function button_Go() {
+      const q = document.getElementById("text").value; // lee input
+      const data = await getquests(q);                  // intenta obtener datos
+      display(data);
+    }
+
+    async function getquests(query) {
+      // Esto solo sirve para demostrar carga del archivo como texto/binario.
+      // Una SQLite .db no se puede consultar así desde JS sin un motor.
+      const res = await fetch("./searchmain.db");
+      if (!res.ok) throw new Error("No se pudo cargar searchmain.db");
+      return await res.arrayBuffer();
+    }
+
+    function display(data) {
+      document.getElementById("content").textContent =
+        "Cargado searchmain.db (bytes): " + data.byteLength;
+    }
+  </script>
+</head>
+
+<body bgcolor="#000">
+  <input id="text" type="text" placeholder="Search">
+  <button onclick="button_Go()">Go</button>
+  <hr>
+  <div id="content"></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>os-web</title>
+</head>
+<body style="margin: 0px;">
+  <div id="mainscreen">
+    
+  </div>
+
+  <div id="osbarr">
+    
+    <div class="inicio-contenedor">
+      <div id="menu-inicio" class="menu-desplegable">
+        <hr>
+        <div class="menu-item" onclick="location.reload()">
+          <span class="icon">🔄</span>
+          <p>Reiniciar OS</p>
+        </div>
+      </div>
+      <button class="start-btn" onclick="api.toggleMenu()">
+        <img id="start-img" src="osset/icon.png" alt="logo"> 
+        Inicio
+      </button>
+      <div id="taskbar-items">
+      </div>
+      <div id="task-time">
+        <span id="task-time-ti"></span><br>
+        <span id="task-time-da"></span>
+      </div>
+    </div>
+  </div>
+  
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
+</body>
+</html>

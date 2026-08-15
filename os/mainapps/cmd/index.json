@@ -1,0 +1,6 @@
+{
+    "TITLE": "cmd",
+    "HTML": "mainapps/cmd/main.html",
+    "ICON": "mainapps/cmd/assets/cmd.png",
+    "SCR": "mainapps/folder/scr.js"
+}

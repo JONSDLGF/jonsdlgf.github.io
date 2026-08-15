@@ -1,0 +1,25 @@
+{ // <-- abrimos bloque o empaquetado
+    const list = {
+        "system": "/",
+        "apps": "/mainapps"
+    }; // esta es la lista de faboritos es que el dice que los archibos o folders que usas mas
+    // hacer un hr y despues poner el '/' para que el usuario mire todo el disco que tiene "osea que cosas tiene en el servidor"
+    var root = "/"; // el es el que dice que en cual 
+
+    function drawtree() {
+        // cada archibo y fichero se hace un button tipo asin:
+        //  <div class="file" onclick="console.log('name')">
+        //    <span class="icon">🔄</span>
+        //    <p>nombre de fichero</p>
+        //  </div>
+        // y asin los que son folders:
+        // <div class="folder" onclick="openfolder('name')">
+        //    <span class="more">-</span> y asin los que estan abiertos <span class="more">|</span>
+        //    <span class="icon">🔄</span>
+        //    <p>nombre de folder</p>
+        //  </div>
+    }
+    function gettree(root) {}// return de tipo json
+    function getmetafolder(root) {} // retorna una lista de nombres y si es un file o folder
+    function renderblock(root) {} // aqui es el que dice que haga un grid flexible y el que esta dentro del el root pone folders o files dependiendo
+} // <-- Cerramos bloque
