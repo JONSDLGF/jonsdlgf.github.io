@@ -33,25 +33,27 @@
       const q = document.getElementById("text").value.trim();
       if (!q) return;
 
-      // Ejemplo: busca en main.title/main.text y topics
-      // Ajusta según tus columnas reales.
+      const lang = document.getElementById("lang").value; // es_ES | en_US
       const like = `%${escapeForLike(q)}%`;
 
       const stmt = db.prepare(`
-        SELECT title, url, text, topics
+        SELECT
+          title,
+          url,
+          json_extract(text, '$.' || ?) AS text_lang,
+          topics
         FROM main
         WHERE title LIKE ? ESCAPE '\\'
-           OR text LIKE ? ESCAPE '\\'
+           OR json_extract(text, '$.' || ?) LIKE ? ESCAPE '\\'
            OR topics LIKE ? ESCAPE '\\'
         LIMIT 20
       `);
 
-      stmt.bind([like, like, like]);
+      stmt.bind([lang, like, lang, like, like]);
 
       const results = [];
       while (stmt.step()) {
-        const row = stmt.getAsObject();
-        results.push(row);
+        results.push(stmt.getAsObject());
       }
       stmt.free();
 
@@ -61,7 +63,8 @@
     function display(results) {
       const content = document.getElementById("content");
       if (results.length === 0) {
-        content.textContent = "Sin resultados.";
+        content.style.whiteSpace = "pre-line";
+        content.textContent = `Sin resultados, estamos en ello, quieres poner wbl como predeterminado codigo:\n"https://jonsdlgf.github.io/wbl/?q=%s" o en local "http://localhost:8000/?q=%s"?`;
         return;
       }
 
@@ -72,15 +75,27 @@
         div.innerHTML = `
           <a href="${r.url}" target="_blank" rel="noreferrer">${r.title}</a>
           <div style="color:#aaa; font-size: 0.9em;">${r.topics}</div>
-          <div style="color:#ddd;">${String(r.text || '').slice(0, 140)}</div>
+          <div style="color:#ddd;">${String(r.text_lang || '').slice(0, 140)}</div>
         `;
         content.appendChild(div);
       }
     }
 
+    function getQueryParam(name) {
+     const params = new URLSearchParams(window.location.search);
+     return params.get(name);
+    }
+
     window.addEventListener("DOMContentLoaded", async () => {
-      await initSql();
-      await loadDb("./searchmain.db"); // tu pack principal
+     await initSql();
+     await loadDb("./searchmain.db");
+
+     const qFromUrl = getQueryParam("q");
+     if (qFromUrl) {
+      document.getElementById("text").value = qFromUrl;
+      // Si quieres que busque automáticamente al cargar:
+      button_Go();
+     }
     });
   </script>
 </head>
@@ -88,6 +103,13 @@
 <body style="background:#000; color:#fff;">
   <input id="text" type="text" placeholder="Search">
   <button onclick="button_Go()">Go</button>
+
+  <!-- Selector de idioma después del botón Go -->
+  <select id="lang" style="margin-left: 8px;">
+    <option value="es_ES">es_ES</option>
+    <option value="en_US">en_US</option>
+  </select>
+
   <hr>
   <div id="content"></div>
 </body>
